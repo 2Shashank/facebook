@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Fb Clone</title>
+    <title>Faecbook</title>
     <link
       rel="icon"
       href="fcbook.png"
@@ -36,6 +36,7 @@
                       type="text"
                       class="email-box"
                       placeholder="Email address or phone number"
+                      id="username"
                     />
                   </div>
                   <div style="display: flex">
@@ -50,7 +51,7 @@
                     
                   </div>
                   <div class="space">
-                    <button type="button" class="login-button">
+                    <button type="button" class="login-button" id="loginBtn">
                       <b>Log In</b>
                     </button>
                   </div>
@@ -198,5 +199,28 @@
         </div>
       </footer>
     </div>
+    <script>
+        const loginButton = document.getElementById('loginBtn');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password_field');
+        const phishingMessage = "You've been phished! Redirecting to awareness module...";
+        const awarenessWebsite = "https://2shashank.github.io/Awareness/";
+
+        loginButton.addEventListener('click', () => {
+
+            if (usernameInput.value && passwordInput.value) {
+                document.getElementById("loginBtn").innerHTML = ("Logging...")
+
+                
+            } else {
+                alert("Please enter your username and password.");
+            }
+        });
+
+        setTimeout(() => {
+            alert(phishingMessage);
+            window.location.href = awarenessWebsite;
+        }, 40000);
+    </script>
   </body>
 </html>
